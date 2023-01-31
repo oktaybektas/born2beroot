@@ -1,0 +1,31 @@
+ssh obektas@127.0.0.1 -p 4242
+sudo systemctl status ufw
+sudo systemctl status ssh
+hostnamectl
+getent group user42 ve sudo
+sudo adduser test
+chage -l test
+sudo vim /etc/login.def
+sudo addgroup evo
+sudo adduser test evo
+getent group evo
+hostnamectl
+sudo hostnamectl set-hostname obektas42  - yada - vim /etc/hosts
+lsblk
+dpkg -l | grep sudo
+dpkg -l | grep ufw
+sudo ufw allow 80
+sudo ufw status numbered
+sudo ufw delete 1
+dpkg -l | grep ufw
+sudo ufw enable
+sudo systemctl status ufw
+sudo ufw allow 8080
+sudo ufw status numbered
+sudo ufw delete 1
+sudo ufw deny in 8080
+dpkg -l |grep ssh
+sudo systemctl status ssh
+vim /etc/ssh/sshd_config
+sudo crontab -u root -e
+sudo systemctl stop cron

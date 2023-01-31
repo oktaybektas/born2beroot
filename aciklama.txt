@@ -1,0 +1,68 @@
+https://azure.microsoft.com/tr-tr/resources/cloud-computing-dictionary/what-is-a-virtual-machine/
+
+Sanal Makinalar Nedir,Nasıl Çalışır,Ne Işe Yararlar
+Sanal makinalar virtual machine (vm) diye adlandırılırlar
+Fiziki bilgisayardan cpu, ram, hdd kullanarak virtualbox aracılığıyla gerçek bir makina gibi işlem gören sanal bir makina oluşturmaya denir.
+Sanal makina içindeki yazılım ana makinaya müdahale edemez
+Amacı yeni işletim sistemi deneme
+Hackleme veya virus olduğundan şüphelendiğin dosyayı açma işleri
+Oluşturduğun uygulama veya web sitesi farklı işletim sistemlerinde kontrol etme
+Tek bilgisayarla farklı işletim sistemlerini çalıştırma
+Kolay kurulur ve kaldırılabilir olması
+
+Aptitude paketi silerken kullanılmayan paketleri otomatik siler. Apt silmez ekstra --auto-remove gibi komutlar kullanmanı ister.Aptitude grafik arayüzü ile de çalışır.daha gelişmiştir.
+
+Apparmor
+Arka planda sessizce çalışır. Sisteme zarar verebilecek ayarları, servisleri ve diğer ayarları kontrol edip sınırlandırır.
+
+Debian vs rocky
+rocky sunucu tarafında, kurumsal, red hat topluluğu, dnf paket yükleyicisi,selinux güvenlik uygulaması, güncellemeler zaman alır, kurumsal destek alınabilir.Karmaşık arayüze ve sınır pakete sahiptir
+
+lvm nedir
+Mantıksal Hacim Yönetimi modüler disk veri kümesi oluşturulmasına böylece mevcut disk alanı üzerinde istenilen zaman istenilen boyutlandırmanın yeniden yapabilmesine, olanak sağlayan bir yapıdır.
+Disk alanının yetersiz kaldığı durumlarda LVM ile oluşturulan disk veri kümesine, kolaylıkla yeni disk veya disk bölümleri ilave edebilir, çıkarabilir mevcut ihtiyaçlara göre disk alanı şekillendirebilir.
+
+https://medium.com/@gokhansengun/sudo-nas%C4%B1l-kullan%C4%B1l%C4%B1r-ve-incelikleri-nelerdir-52db87d74ba
+
+Şifreleme politikları nelerdir? Açıklayınız.
+sudo vim /etc/login.defs
+Ve
+# vim /etc/pam.d/common-password
+minlen=10, en az 10 karakter uzunluğu istenmektedir.
+ucredit=-1, en az 1 büyük karakter istenmektedir. (Pozitif durumda Max içeriği belirler.)
+lcredit=-1, en az 1 küçük karakter istenmektedir. (Pozitif durumda Max içeriği belirler.)
+maxrepeat=3, 3’ten fazla art arda karakter !çermemelidir.
+user_check=0, şifre, kullanıcı adını içermemlidir.
+difok=7, eski şifre kullanılmak isteniyorsa, eski şifreden farklı olarak en az 7 karakter içermelidir.
+enforce_for_root, belirt!len kuralları root yani kök kullanıcı şifresi içinde uygula anlamına geliyor.
+retry=3, standart kuraldır. Art arda 3 defa şifre giriş işlemi gerçekleştirilebilir.
+
+sudo nedir sudo visudo
+sudo sıradan kullanıcıların, sisteme yönetici olarak bağlanmaları gerekmeden yönetici yetkisi gerektiren işlemleri yapabilmesini sağlayan bir programdır.
+sudo sayesinde bazı işlemleri yönetici olarak yapması gereken kullanıcılara ayrı bir yönetici hesabı açılması ya da bu kullanıcılarla root parolasının paylaşılması gerekmez. Kullanıcı ilgili işlemler için kendi adını kullandığı için bu işlemler loglanabilir ve sınırlanabilir. En güvenli yöntem, sudo listesine eklenen kişilere sadece yapacakları işlemler için yetki vermektir. Bu sayede sudo yetkisi verilen kişinin yetki aşımı yapması, örneğin sudo kullanıcılarının işlemlerini loglayan dosyayı silmesi engellenebilir.
+sudo visudo yaptığımızda ve izinleri incelediğimizde ilk ALL ile bütün terminal ve makinelerden, ikinci ALL ile root dahil bütün kullanıcıların yerine, üçüncü ALL ile ise bütün komutları koşturma hakkı tanınmıştır.
+var/log/sudo/sudo.log var mı ve / Var / log / sudo /" klasöründeki ( s ) dosyasının olup olmadığını görün güncellendi.
+
+ufw güvenlik duvarıdır.Port açma, kapatma, etkisiz hale getirmeye yarayan yazılımdır, yüklü gelmez sonradan yüklenir. ön tanımlı pasiftir
+
+ssh nedir sudo vim /etc/ssh/sshd_config
+uzak sunucuları kimlik kontrolu yaparak kontrol etmesini sağlayan ve veri alışverişinin şifreli yapılmasını sağlayan ağ iletişim protokolüdür
+Portu güvenlik için 22 ile değiştirildi.rootla bağlantı engellendi
+
+Monitoring.sh /usr/local/bin/monitoring.sh
+Uname -a —> sırasıyla şunları verir... kernel, hostname, kernel ana dağıtım bilgisi, kernel versiyon, işlemcinin mimari bilgileri, işletim sistemi bilgisi
+Cpu physical -> işlemci
+vCpu —> sanal işlemci sayısı
+CPU load —> Anlık işlemci yükü/kullanımı
+Last boot —> sanal makinenin en son açıldığı an
+Connexions TCP —> ssh ile sunucuyla bağlantı kuranların sayısı
+Free bellek hakkında bilgi, kullanılan alan, kapasite, boş alan vs.... Free -m : mebi byte Awk komutu -> grepe benzer şekilde örüntü temelli tarama işlemi
+Top -> sunucu hakkındaki anlık istatistikleri verir.
+
+cron nedir
+https://ceaksan.com/tr/crontab-nedir-nasil-kullanilir
+cron yapısı belirlenen periotlarla komut yada uygulamaların çalıştırılmasına olanak sağlar.Crontab ile ilgili olarak SSH portlarının aktif/pasif hale getirilmesi, veritabanı yedeğinin alınması, bir adresten veri çekilmesi, scp ve rsync ile uzak sunucuya veri gönderilmesi, SSL sertifikalarının yenilenmesi, wp cron üzerinden wordpress işlemlerinin gerçekleştirilmesi vs
+
+ Pts ve tty arasındaki fark nedir? Who diye aranır
+ tty normal bir terminal cihazıdır (örneğin sunucunuzdaki konsol).
+ Pts sanal terminaldir
